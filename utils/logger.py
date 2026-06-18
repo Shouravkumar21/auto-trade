@@ -49,6 +49,8 @@ def setup_logger(name: str = 'TradingBot', level: str = 'INFO') -> logging.Logge
     logger.addHandler(console_handler)
     
     # File handler for persistent logs
+    import os
+    os.makedirs('logs', exist_ok=True)
     file_handler = logging.FileHandler(
         f'logs/trading_{datetime.now().strftime("%Y%m%d")}.log',
         encoding='utf-8'
